@@ -47,10 +47,30 @@ elif zero_condition == 'no':
 
 **Задание №2**
 Разработать приложение для определения знака зодиака по дате рождения.
-Пример:
 
-Введите месяц: март
-Введите число: 6
+list = ('Козерог', 'Водолей', 'Рыбы', 'Овен', 'Телец', 'Близнецы', 'Рак',
+        'Лев', 'Дева', 'Весы', 'Скорпион', 'Стрелец')
+list_month = ('январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль',
+              'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь')
 
-Вывод:
-Рыбы
+month_of_birth = (input("Введите месяц рождения (март)"))
+day_of_birth = (input("Введите день рождения (01)"))
+
+month = list_month.index(month_of_birth)
+
+if month == 0 and int(day_of_birth) < 20:
+  print(list[month])
+
+elif month == 0 and int(day_of_birth) >= 20:
+  month = month + 1
+  print(list[month])
+
+elif month == 1 and int(day_of_birth ) < 20:
+  month = month +1
+  print(list[month])
+elif month == 1 and int(day_of_birth ) >= 20:
+  month = month +1
+  print(list[month])
+  
+else: print ('Мне надоело дальше писать')
+
