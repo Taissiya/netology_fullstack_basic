@@ -271,5 +271,11 @@ for count, num_queries in word_count_distribution.items():
 Напишите скрипт, который возвращает название канала с максимальным объемом.
 Т.е. в данном примере скрипт должен возвращать 'yandex'.
 
+stats = {'facebook': 55, 'yandex': 120, 'vk': 115, 'google': 99, 'email': 42, 'ok': 98}
+
+max_stat = max(stats, key=stats.get)
+print(max_stat)
+
+
 
 
