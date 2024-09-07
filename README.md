@@ -243,7 +243,33 @@ print(set_d)
 
 Задание 3
 Дан список поисковых запросов. Получить распределение количества слов в них. Т.е. поисковых запросов из одного - слова 5%, из двух - 7%, из трех - 3% и т.д.
+from collections import Counter
 
+queries = [
+  'смотреть сериалы онлайн',
+  'новости спорта',
+  'афиша кино',
+  'курс доллара',
+  'сериалы этим летом',
+  'курс по питону',
+  'сериалы про спорт'
+  ]
+
+word_count = [len(query.split()) for query in queries]
+print (word_count)
+
+word_count_distribution = Counter(word_count)
+print (word_count_distribution)
+
+total_queries = len(queries)
+for count, num_queries in word_count_distribution.items():
+  percentage = (num_queries / total_queries) * 100
+  print(f'Запросов из {count} слов: {percentage:.2f}%')
+
+  Задание 4
+Дана статистика рекламных каналов по объемам продаж.
+Напишите скрипт, который возвращает название канала с максимальным объемом.
+Т.е. в данном примере скрипт должен возвращать 'yandex'.
 
 
 
