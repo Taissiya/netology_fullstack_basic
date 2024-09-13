@@ -303,39 +303,39 @@ a – add – команда, которая добавит новый доку�
 Внимание: p, s, l, a - это пользовательские команды, а не названия функций. Функции должны иметь выразительное название, передающие её действие.
 
 
-documents = [
-    {"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
-    {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
-    {"type": "insurance", "number": "10006", "name": "Аристарх Павлов"}
-]
-
-directories = {
-    '1': ['2207 876234', '11-2'],
-    '2': ['10006'],
-    '3': []
-}
-
-def getPeopleByNum(number):
-    for doc in documents:
-        if doc["number"] == number:
-            print(doc["name"])  
-            return
-    print("Документ не найден")  
-
-def getShieldNumByNum(number):
-    for shelf, numbers in directories.items():
-        if number in numbers:
-          print(shelf) 
-          return 
-    print("Документ на найден на полках")
-
-command = input("Введите команду: ")
-number = input("Введите номер документа: ")
-
-if command == 'p':
-    getPeopleByNum(number)
-elif command == 's':
-  getShieldNumByNum(number)
-else:
-    print("Неизвестная команда")
+  documents = [
+      {"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
+      {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
+      {"type": "insurance", "number": "10006", "name": "Аристарх Павлов"}
+  ]
+  
+  directories = {
+      '1': ['2207 876234', '11-2'],
+      '2': ['10006'],
+      '3': []
+  }
+  
+  def getPeopleByNum(number):
+      for doc in documents:
+          if doc["number"] == number:
+              print(doc["name"])  
+              return
+      print("Документ не найден")  
+  
+  def getShieldNumByNum(number):
+      for shelf, numbers in directories.items():
+          if number in numbers:
+            print(shelf) 
+            return 
+      print("Документ на найден на полках")
+  
+  command = input("Введите команду: ")
+  number = input("Введите номер документа: ")
+  
+  if command == 'p':
+      getPeopleByNum(number)
+  elif command == 's':
+    getShieldNumByNum(number)
+  else:
+      print("Неизвестная команда")
 
