@@ -303,39 +303,72 @@ a – add – команда, которая добавит новый доку�
 Внимание: p, s, l, a - это пользовательские команды, а не названия функций. Функции должны иметь выразительное название, передающие её действие.
 
 
-  documents = [
-      {"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
-      {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
-      {"type": "insurance", "number": "10006", "name": "Аристарх Павлов"}
-  ]
-  
-  directories = {
-      '1': ['2207 876234', '11-2'],
-      '2': ['10006'],
-      '3': []
-  }
-  
-  def getPeopleByNum(number):
-      for doc in documents:
-          if doc["number"] == number:
-              print(doc["name"])  
-              return
-      print("Документ не найден")  
-  
-  def getShieldNumByNum(number):
-      for shelf, numbers in directories.items():
-          if number in numbers:
-            print(shelf) 
-            return 
-      print("Документ на найден на полках")
-  
-  command = input("Введите команду: ")
-  number = input("Введите номер документа: ")
-  
-  if command == 'p':
-      getPeopleByNum(number)
-  elif command == 's':
-    getShieldNumByNum(number)
-  else:
-      print("Неизвестная команда")
+documents = [
+    {"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
+    {"type": "invoice", "number": "11-2", "name": "Геннадий Покемонов"},
+    {"type": "insurance", "number": "10006", "name": "Аристарх Павлов"}
+]
+
+directories = {
+    '1': ['2207 876234', '11-2'],
+    '2': ['10006'],
+    '3': []
+}
+
+def getPeopleByNum(number):
+    for doc in documents:
+        if doc["number"] == number:
+            print(doc["name"])
+            return
+    print("Документ не найден")
+
+def getShieldNumByNum(number):
+    for shelf, numbers in directories.items():
+        if number in numbers:
+          print(shelf)
+          return
+    print("Документ на найден на полках")
+
+def getAllDocs():
+    for document in documents:
+      value = list(document.values())
+      formatted_string = f"{value[0]}, '{value[1]}' '{value[2]}'"
+      print(formatted_string)
+      return
+    print("У вас нет документов на полках")
+
+def addDoc(number, doc_type, doc_name, folder_number):
+    new_document = {
+        "type": doc_type,
+        "number": number, 
+        "name": doc_name
+    }
+    documents.append(new_document)
+    directories[folder_number].append(number) 
+    return
+
+
+command = input("Введите команду: ")
+
+
+if command == 'p':
+   number = input("Введите номер документа: ")
+   getPeopleByNum(number)
+elif command == 's':
+     number = input("Введите номер документа: ")
+     getShieldNumByNum(number)
+elif command == 'l':
+     getAllDocs()
+if command == 'a':
+    number = input("Введите номер документа: ")
+    doc_type = input("Введите тип документа: ")
+    doc_name = input("Введите наименование документа: ")
+    folder_number = input("Введите номер папки: ")
+
+    if folder_number not in directories.keys():
+        print('Неверный номер папки')
+    else:
+        addDoc(number, doc_type, doc_name, folder_number)
+else:
+    print('Неверная команда')
 
