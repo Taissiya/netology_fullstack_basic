@@ -9,7 +9,8 @@
 Если в этом же банке будет оформлена страхование, то базовая ставка уменьшается на 1.5% Базовую процентную ставку выбрать самостоятельно.
 Если клиент оформляет ипотеку по дальневосточной программе, то остальные скидки не применяются.
 
-```base_rate = 2
+```jsx
+base_rate = 2
 print("Hello!")
 zero_condition = (input("Do you want to apply for a Far Eastern program?(yes/no)"))
 if zero_condition == 'yes':
@@ -34,7 +35,8 @@ elif zero_condition == 'no':
   forth_condition = (input('Do you waht to open insurance account in our bank?(yes/no)'))
   if forth_condition == 'yes':
     base_rate = base_rate - 1.5
-  print(f'Ваша процентная ставка = {base_rate}') ```
+  print(f'Ваша процентная ставка = {base_rate}')
+```
 
 
   
